@@ -1,0 +1,33 @@
+{
+  "name": "manodx",
+  "version": "0.0.0",
+  "description": "Documentation framework",
+  "type": "module",
+  "main": "./index.js",
+  "files": [
+    "index.js"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "markdown",
+    "mdx",
+    "md",
+    "compiler",
+    "parser",
+    "jsx",
+    "react",
+    "typescript"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whosramoss/manodx.git"
+  },
+  "homepage": "https://manodx.whosramoss.com",
+  "bugs": {
+    "url": "https://github.com/whosramoss/manodx/issues"
+  },
+  "author": "Gabriel Ramos (https://github.com/whosramoss)"
+}
