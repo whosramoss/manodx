@@ -1,10 +1,6 @@
 node_modules/
+dist/
+.DS_Store
+*.local
 www/node_modules/
 www/dist/
-dist/
-*.log
-.DS_Store
-coverage/
-.env
-.env.*
-!.env.example
