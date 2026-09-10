@@ -13,6 +13,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+## [1.0.1] - 2026-09-10
+
+### Fixed
+
+- Resolve ESM module paths so `npx manodx` works without extensionless import errors
+
 ## [1.0.0] - 2026-09-10
 
 ### Added
@@ -36,5 +42,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial public release of `manodx`.
 
+[1.0.1]: https://github.com/whosramoss/manodx/releases/tag/v1.0.1
 [1.0.0]: https://github.com/whosramoss/manodx/releases/tag/v1.0.0
 [0.0.0]: https://github.com/whosramoss/manodx/releases/tag/v0.0.0

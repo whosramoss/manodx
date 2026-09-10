@@ -1,6 +1,6 @@
-import { defineConfig } from 'tsup';
-import { copyFileSync, mkdirSync, readdirSync, existsSync } from 'fs';
-import { join } from 'path';
+import { defineConfig } from "tsup";
+import { copyFileSync, mkdirSync, readdirSync, existsSync } from "fs";
+import { join } from "path";
 
 function copyDir(src: string, dest: string) {
   if (!existsSync(src)) return;
@@ -18,20 +18,32 @@ function copyDir(src: string, dest: string) {
 
 export default defineConfig([
   {
-    entry: ['src/**/*.ts'],
-    format: ['esm'],
-    dts: true,
-    clean: true,
-    outDir: 'dist',
+    entry: { "cli/index": "src/cli/index.ts" },
+    format: ["esm"],
+    dts: false,
+    outDir: "dist",
     splitting: false,
     sourcemap: false,
-    target: 'node18',
-    bundle: false,
+    target: "node18",
+    bundle: true,
+    banner: { js: "#!/usr/bin/env node" },
+    clean: true,
+  },
+  {
+    entry: { index: "src/index.ts" },
+    format: ["esm"],
+    dts: true,
+    outDir: "dist",
+    splitting: false,
+    sourcemap: false,
+    target: "node18",
+    bundle: true,
     onSuccess: async () => {
-      // Copy static assets
-      copyFileSync('src/config/style.css', 'dist/config/style.css');
-      copyDir('src/assets', 'dist/assets');
-      console.log('Copied static assets to dist/');
+      mkdirSync("dist/config", { recursive: true });
+      mkdirSync("dist/assets", { recursive: true });
+      copyFileSync("src/config/style.css", "dist/config/style.css");
+      copyDir("src/assets", "dist/assets");
+      console.log("Copied static assets to dist/");
     },
   },
 ]);

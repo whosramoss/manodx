@@ -1,6 +1,6 @@
 {
   "name": "manodx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Websites rendered by the manodx framework",
   "type": "module",
   "license": "MIT",
@@ -29,9 +29,7 @@
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
-    },
-    "./config/*": "./dist/config/*",
-    "./cli": "./dist/cli/index.js"
+    }
   },
   "files": [
     "dist",
