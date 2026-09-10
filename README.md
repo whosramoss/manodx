@@ -90,7 +90,3 @@ export default {
 - **Zero-config assets** — Favicons and OG images included by default
 - **Dev server** — Hot reload with SSE
 - **Static builder** — Hashed assets for production
-
-## License
-
-[MIT](./LICENSE)
