@@ -1,33 +1,28 @@
 {
   "name": "manodx",
-  "version": "0.0.0",
-  "description": "Documentation framework",
+  "version": "1.0.0",
+  "description": "Websites rendered by the manodx framework",
   "type": "module",
-  "main": "./index.js",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "bin": {
+    "manodx": "./src/cli/index.ts"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./config/*": "./src/config/*",
+    "./cli": "./src/cli/index.ts"
+  },
   "files": [
-    "index.js"
+    "src"
   ],
-  "engines": {
-    "node": ">=18"
+  "scripts": {
+    "typecheck": "tsc --noEmit"
   },
-  "keywords": [
-    "markdown",
-    "mdx",
-    "md",
-    "compiler",
-    "parser",
-    "jsx",
-    "react",
-    "typescript"
-  ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/whosramoss/manodx.git"
+  "dependencies": {
+    "typescript": "^5.6.0"
   },
-  "homepage": "https://manodx.whosramoss.com",
-  "bugs": {
-    "url": "https://github.com/whosramoss/manodx/issues"
-  },
-  "author": "Gabriel Ramos (https://github.com/whosramoss)"
+  "devDependencies": {
+    "@types/node": "^22.0.0"
+  }
 }

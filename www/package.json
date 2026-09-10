@@ -1,0 +1,18 @@
+{
+  "name": "manodx-www",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Working example that uses the manodx framework",
+  "type": "module",
+  "scripts": {
+    "dev": "npx tsx ../src/cli/index.ts dev",
+    "build": "npx tsx ../src/cli/index.ts build",
+    "preview": "npx tsx ../src/cli/index.ts preview"
+  },
+  "dependencies": {
+    "manodx": "file:.."
+  },
+  "devDependencies": {
+    "tsx": "^4.0.0"
+  }
+}
