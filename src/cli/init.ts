@@ -1,5 +1,24 @@
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
+
+function getManodxVersion(): string {
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  let dir = __dirname;
+  while (dir !== path.dirname(dir)) {
+    const pkgPath = path.join(dir, 'package.json');
+    if (fs.existsSync(pkgPath)) {
+      try {
+        const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
+        if (pkg.name === 'manodx' && pkg.version) {
+          return pkg.version;
+        }
+      } catch { /* keep walking */ }
+    }
+    dir = path.dirname(dir);
+  }
+  return 'latest';
+}
 
 const CONFIG_TEMPLATE = `import { type ManodxConfig, defaultConfig } from "manodx";
 
@@ -40,7 +59,9 @@ Create more pages by adding \`.md\` files in the \`app/\` directory.
 - **Themes** — Light/dark mode with the switch above
 `;
 
-const PACKAGE_JSON_TEMPLATE = `{
+function getPackageJsonTemplate(): string {
+  const version = getManodxVersion();
+  return `{
   "name": "{{name}}",
   "version": "0.1.0",
   "private": true,
@@ -50,11 +71,12 @@ const PACKAGE_JSON_TEMPLATE = `{
     "build": "manodx build",
     "preview": "manodx preview"
   },
-  "dependencies": {
-    "manodx": "latest"
+  "devDependencies": {
+    "manodx": "^${version}"
   }
 }
 `;
+}
 
 const GITIGNORE_TEMPLATE = `node_modules
 dist
@@ -93,7 +115,7 @@ export async function init(options: InitOptions): Promise<void> {
     },
     {
       path: path.join(targetDir, 'package.json'),
-      content: PACKAGE_JSON_TEMPLATE.replace(/\{\{name\}\}/g, toPackageName(name)),
+      content: getPackageJsonTemplate().replace(/\{\{name\}\}/g, toPackageName(name)),
     },
     {
       path: path.join(targetDir, '.gitignore'),

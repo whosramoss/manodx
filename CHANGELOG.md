@@ -13,6 +13,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+## [1.0.2] - 2026-09-10
+
+### Fixed
+
+- Remove duplicate shebang in the CLI bundle that caused `SyntaxError: Invalid or unexpected token`
+- Resolve framework assets, CSS, runtime, and browser bundle from `dist/` when the package is installed from npm (no longer requires `src/` at runtime)
+
+### Changed
+
+- Prebuild `dist/browser/framework.js` and `dist/browser/runtime.js` during package build
+
 ## [1.0.1] - 2026-09-10
 
 ### Fixed
@@ -42,6 +53,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial public release of `manodx`.
 
+[1.0.2]: https://github.com/whosramoss/manodx/releases/tag/v1.0.2
 [1.0.1]: https://github.com/whosramoss/manodx/releases/tag/v1.0.1
 [1.0.0]: https://github.com/whosramoss/manodx/releases/tag/v1.0.0
 [0.0.0]: https://github.com/whosramoss/manodx/releases/tag/v0.0.0

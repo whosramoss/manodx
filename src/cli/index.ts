@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { parseArgs } from 'util';
 import path from 'path';
 import { startDevServer } from '../server/dev-server';

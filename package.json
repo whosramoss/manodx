@@ -1,6 +1,6 @@
 {
   "name": "manodx",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Websites rendered by the manodx framework",
   "type": "module",
   "license": "MIT",
@@ -37,7 +37,7 @@
     "CHANGELOG.md"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && tsx scripts/prepare-dist.ts",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build"
   },
@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
-    "tsup": "^8.0.0"
+    "tsup": "^8.0.0",
+    "tsx": "^4.0.0"
   }
 }

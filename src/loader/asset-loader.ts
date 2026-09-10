@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { resolveFrameworkAssetsDir } from './package-paths';
 
 /**
  * Icons and share images shipped with the framework. Every manodx site gets
@@ -9,7 +10,7 @@ import path from 'path';
 export const ASSETS_DIR = 'assets';
 
 export function frameworkAssetsDir(packageRoot: string): string {
-  return path.join(packageRoot, 'src', ASSETS_DIR);
+  return resolveFrameworkAssetsDir(packageRoot);
 }
 
 export function siteAssetsDir(root: string): string {
