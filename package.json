@@ -3,26 +3,51 @@
   "version": "1.0.0",
   "description": "Websites rendered by the manodx framework",
   "type": "module",
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "license": "MIT",
+  "author": "Gabriel Ramos",
+  "keywords": [
+    "markdown",
+    "mdx",
+    "static-site",
+    "ssg",
+    "framework"
+  ],
+  "homepage": "https://manodx.whosramoss.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whosramoss/manodx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/whosramoss/manodx/issues"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "bin": {
-    "manodx": "./src/cli/index.ts"
+    "manodx": "./dist/cli/index.js"
   },
   "exports": {
-    ".": "./src/index.ts",
-    "./config/*": "./src/config/*",
-    "./cli": "./src/cli/index.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./config/*": "./dist/config/*",
+    "./cli": "./dist/cli/index.js"
   },
   "files": [
-    "src"
+    "dist",
+    "docs",
+    "CHANGELOG.md"
   ],
   "scripts": {
-    "typecheck": "tsc --noEmit"
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "typescript": "^5.6.0"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0"
+    "@types/node": "^22.0.0",
+    "tsup": "^8.0.0"
   }
 }
